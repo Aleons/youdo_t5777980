@@ -13,18 +13,17 @@ public class DiscordSend {
     }
 
     public static void sendMessage(String message){
-
-        for (int i = 0; i<discords.size(); i++){
-            DiscordsThread discordsThread = new DiscordsThread(discords.get(i),message);
-            discordsThread.start();
-            try {
-                discordsThread.join(10);
-            }
-            catch (InterruptedException e) {
-                e.printStackTrace();
+        if(!message.equals("null")) {
+            for (int i = 0; i < discords.size(); i++) {
+                DiscordsThread discordsThread = new DiscordsThread(discords.get(i), message);
+                discordsThread.start();
+                try {
+                    discordsThread.join(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
-
     }
 
 }
