@@ -16,7 +16,9 @@ public class Bot extends TelegramLongPollingBot {
 
 
     public void onUpdateReceived(Update update) {
-        DiscordSend.sendMessage(update.getMessage().getText());
+        String groupName=update.getMessage().getChat().getTitle();
+        String message = update.getMessage().getText();
+        DiscordSend.sendMessage(groupName, message);
     }
 
 

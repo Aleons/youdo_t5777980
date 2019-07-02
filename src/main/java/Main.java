@@ -12,6 +12,7 @@ public class Main {
 
         String token;
         String name;
+        String listChannelInGroup;
         FileInputStream fis;
         Properties property = new Properties();
         try {
@@ -19,7 +20,8 @@ public class Main {
             property.load(fis);
             token = property.getProperty("botToken");
             name = property.getProperty("botName");
-            DiscordSend.setDiscords(property.getProperty("discordServers"));
+            listChannelInGroup = property.getProperty("listChannelInGroup");
+            DiscordSend.setDiscords(listChannelInGroup);
 
         } catch (IOException e) {
             token = "error";
